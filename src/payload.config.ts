@@ -13,12 +13,11 @@ import { Media } from './collections/Media'
 // Resolve __dirname equivalent in ESM
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
+console.log('Secret:', process.env.PAYLOAD_SECRET)
 
 export default buildConfig({
-  
-
   // Admin panel config
-  cors: ['http://localhost:5173'], 
+  cors: ['http://localhost:5173'],
   admin: {
     user: Users.slug,
     importMap: {
@@ -27,57 +26,56 @@ export default buildConfig({
   },
 
   // Collections
- collections: [
-  Users,
-  Media,
-  {
-    slug: 'places',
-    access: {
-      read: () => true,
-      create: () => true,
-      update: () => true,
-      delete: () => true,
-    },
-    admin: {
-      useAsTitle: 'name',
-    },
-    fields: [
-      { name: 'name', type: 'text', required: true },
-      
-      // ✅ This creates image upload from system via Media
-      { name: 'image', type: 'upload', relationTo: 'media', required: true },
+  collections: [
+    Users,
+    Media,
+    {
+      slug: 'places',
+      access: {
+        read: () => true,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
+      },
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        { name: 'name', type: 'text', required: true },
 
-      { name: 'tagline', type: 'text' },
-      { name: 'country', type: 'text', required: true },
-      { name: 'continent', type: 'text', required: true },
-      { name: 'cost', type: 'number', min: 0, max: 100 },
-      { name: 'internet', type: 'number', min: 0, max: 100 },
-      { name: 'safety', type: 'number', min: 0, max: 100 },
-      { name: 'liked', type: 'number', min: 0, max: 100 },
-      { name: 'monthlyCost', type: 'text' },
-      { name: 'temperature', type: 'text' },
-      { name: 'aqi', type: 'number' },
-    ],
-  },
-  {
-    slug: 'inquiries',
-    access: {
-      read: () => true,
-      create: () => true,
-    },
-    admin: {
-      useAsTitle: 'name',
-    },
-    fields: [
-      { name: 'name', type: 'text', required: true },
-      { name: 'email', type: 'email', required: true },
-      { name: 'country', type: 'text', required: true },
-      { name: 'message', type: 'textarea', required: true },
-      { name: 'cityId', type: 'text', required: true },
-    ],
-  },
-],
+        // ✅ This creates image upload from system via Media
+        { name: 'image', type: 'upload', relationTo: 'media', required: true },
 
+        { name: 'tagline', type: 'text' },
+        { name: 'country', type: 'text', required: true },
+        { name: 'continent', type: 'text', required: true },
+        { name: 'cost', type: 'number', min: 0, max: 100 },
+        { name: 'internet', type: 'number', min: 0, max: 100 },
+        { name: 'safety', type: 'number', min: 0, max: 100 },
+        { name: 'liked', type: 'number', min: 0, max: 100 },
+        { name: 'monthlyCost', type: 'text' },
+        { name: 'temperature', type: 'text' },
+        { name: 'aqi', type: 'number' },
+      ],
+    },
+    {
+      slug: 'inquiries',
+      access: {
+        read: () => true,
+        create: () => true,
+      },
+      admin: {
+        useAsTitle: 'name',
+      },
+      fields: [
+        { name: 'name', type: 'text', required: true },
+        { name: 'email', type: 'email', required: true },
+        { name: 'country', type: 'text', required: true },
+        { name: 'message', type: 'textarea', required: true },
+        { name: 'cityId', type: 'text', required: true },
+      ],
+    },
+  ],
 
   // Lexical rich text editor
   editor: lexicalEditor(),
