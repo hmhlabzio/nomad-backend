@@ -17,7 +17,7 @@ console.log('Secret:', process.env.PAYLOAD_SECRET)
 
 export default buildConfig({
   // Admin panel config
-  cors: ['http://localhost:5173'],
+  cors: ['http://localhost:5173','https://your-vercel-app.vercel.app'],
   admin: {
     user: Users.slug,
     importMap: {
