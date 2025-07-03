@@ -5,16 +5,15 @@
   "license": "MIT",
   "type": "module",
   "scripts": {
-  "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
-  "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -H 0.0.0.0 -p 3000",
-  "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -H 0.0.0.0 -p 3000",
-  "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
-  "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
-  "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
-  "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-  "start": "cross-env NODE_OPTIONS=--no-deprecation next start -H 0.0.0.0 -p 10000"
-},
-
+    "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev -H 0.0.0.0 -p 3000",
+    "devsafe": "rm -rf .next && cross-env NODE_OPTIONS=--no-deprecation next dev -H 0.0.0.0 -p 3000",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap",
+    "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
+    "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start -H 0.0.0.0 -p 10000"
+  },
   "dependencies": {
     "@payloadcms/db-mongodb": "3.43.0",
     "@payloadcms/next": "3.43.0",
