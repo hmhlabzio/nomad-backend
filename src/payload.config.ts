@@ -99,6 +99,12 @@ export default buildConfig({
   // Plugins
   plugins: [
     payloadCloudPlugin(),
-    // storage-adapter-placeholder
+    cloudStorage({
+      collections: {
+        media: {
+          disableLocalStorage: true, // ✅ Use Payload Cloud Storage
+        },
+      },
+    })
   ],
 })
